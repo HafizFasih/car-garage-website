@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PiHandshake } from "react-icons/pi";
 import Link from "next/link";
@@ -17,19 +17,28 @@ const Buy = () => {
   const [msg, setMsg] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [result, setResult] = React.useState("");
+  const [result, setResult] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [data, setData] = useState<carDataType[]>([]);
+
+  useEffect(() => {
+    // This will only run on the client
+    if (typeof window !== "undefined") {
+      const cartData = JSON.parse(localStorage.getItem("cartData")!);
+      if (cartData) {
+        setData(cartData);
+      }
+    }
+  }, []);
 
   const setTotal = () => {
     let total: number = 0;
-    JSON.parse(localStorage.getItem("cartData")!).forEach(
-      (val: carDataType) => {
-        const purePrice: number = Number(
-          val.price.slice(0, val.price.length - 1).replace(",", "")
-        );
-        total += purePrice;
-      }
-    );
+    data.forEach((val: carDataType) => {
+      const purePrice: number = Number(
+        val.price.slice(0, val.price.length - 1).replace(",", "")
+      );
+      total += purePrice;
+    });
     const priceArr: string[] = total.toString().split("").reverse();
     let count: number = 0;
     let price: string = "";
@@ -46,13 +55,16 @@ const Buy = () => {
     const finalAmount: string = price.split("").reverse().join("") + "$";
     return finalAmount;
   };
+
   const emptyCarData = () => {
-    try{
-      JSON.parse(localStorage.setItem("cartData", "[]")!)
+    try {
+      localStorage.setItem("cartData", "[]");
+    } catch (error) {
+      console.error(error);
     }
-    catch(error){}
     setOrderPlaced(false);
-  }
+  };
+
   const sumbitHandler = async (event: any) => {
     setOrderPlaced(true);
     setName("");
@@ -80,7 +92,6 @@ const Buy = () => {
       setResult(data.message);
     }
   };
-
   return (
     <>
       <main
@@ -139,7 +150,7 @@ const Buy = () => {
                 <b>Total Amount:</b> {setTotal()}
               </h1>
               <div className="flex flex-wrap overflow-y-auto items-center justify-center gap-5 py-5 px-4">
-                {JSON.parse(localStorage.getItem("cartData")!).map(
+                {data.map(
                   (val: carDataType, ind: number) => (
                     <div
                       key={ind}

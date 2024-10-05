@@ -40,118 +40,122 @@ interface CarFeautersType {
   name: string;
 }
 export default function Page({ params }: { params: Params }) {
-  const checkCarData = () => {
-    let selectedModel: carDataType[] = [];
-    switch (params.manufacture) {
-      case "bmw":
-        selectedModel = bmwCarData;
-        break;
-      case "bentley":
-        selectedModel = bentleyCarData;
-        break;
-      case "ford":
-        selectedModel = fordCarData;
-        break;
-      case "mercedes":
-        selectedModel = mercedesCarData;
-        break;
-    }
-    let selectedCar = selectedModel.filter((val) => {
-      if (val.route === params.cars) return val;
-    })[0];
-    return selectedCar;
-  };
-  const [btnAnim, setBtnAnim] = useState(false);
-  const [slide, setSlide] = useState(0);
-  const [leftDis, setLeftDis] = useState(true);
-  const [rightDis, setRightDis] = useState(false);
-  const [btnDis, setBtnDis] = useState(false);
-  const [startAnimate, setStartAnimate] = useState(false);
-  const [carData, setCarData] = useState<carDataType>(() => checkCarData());
-  const [featureDis, setFeatureDis] = useState(false);
-  const [starsArrangment, setStarsArrangment] = useState<string[]>([]);
-  const [carFeauters, setCarFeauters] = useState<CarFeautersType[] | null>(
-    null
-  );
-  const addToCart = () => {
+const checkCarData = () => {
+  let selectedModel: carDataType[] = [];
+  switch (params.manufacture) {
+    case "bmw":
+      selectedModel = bmwCarData;
+      break;
+    case "bentley":
+      selectedModel = bentleyCarData;
+      break;
+    case "ford":
+      selectedModel = fordCarData;
+      break;
+    case "mercedes":
+      selectedModel = mercedesCarData;
+      break;
+  }
+  let selectedCar = selectedModel.find((val) => val.route === params.cars);
+  return selectedCar || selectedModel[0];
+};
+
+const [btnAnim, setBtnAnim] = useState(false);
+const [slide, setSlide] = useState(0);
+const [leftDis, setLeftDis] = useState(true);
+const [rightDis, setRightDis] = useState(false);
+const [btnDis, setBtnDis] = useState(false);
+const [startAnimate, setStartAnimate] = useState(false);
+const [carData, setCarData] = useState<carDataType>(() => checkCarData());
+const [featureDis, setFeatureDis] = useState(false);
+const [starsArrangment, setStarsArrangment] = useState<string[]>([]);
+const [carFeauters, setCarFeauters] = useState<CarFeautersType[] | null>(null);
+
+const addToCart = () => {
+  if (typeof window !== "undefined") {
     let data = localStorage.getItem("cartData");
     if (!data) {
       localStorage.setItem("cartData", "[]");
       data = "[]";
     }
     const cartArray = JSON.parse(data);
-    const myCarData:carDataType = carData;
+    const myCarData: carDataType = carData;
     cartArray.push(myCarData);
     localStorage.setItem("cartData", JSON.stringify(cartArray));
-    localStorage.setItem("route",`/inventory/${params.manufacture}`)
-  };
-  const scrollToTop = () => {
-    setFeatureDis((val) => !val)
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-  
-  useEffect(() => {
-    slide === 0 ? setLeftDis(true) : setLeftDis(false);
-    slide === carData.pictures.length - 1
-      ? setRightDis(true)
-      : setRightDis(false);
-    setStartAnimate(true);
-  }, [slide]);
-  useEffect(() => {
-    ratingStarsArrangment();
-    setCarFeauters(shufflingFeatures(carFeautersData));
-    if(localStorage.getItem("cartData")){
-
-      const data:carDataType[] = JSON.parse(localStorage.getItem("cartData")!);
-      data.some((val) => params.cars === val.route) && addCarHandler();
-    }
-  }, []);
-
-  const setReportPercent = () => {
-    let count: number = 0;
-    setReport(carData.features).data.map((val) => {
-      count += val.percentage;
-    })
-    return count / 50;
+    localStorage.setItem("route", `/inventory/${params.manufacture}`);
   }
-  const ratingStarsArrangment = () => {
-    let starsData: string[] = ["full", "full"];
-    if (starsData.length <= 5) {
-      if (carData.features === "A" || carData.features === "E") {
-        starsData.push("half", "empty", "empty");
-      } else if (carData.features === "C" || carData.features === "J") {
-        starsData.push("full", "full", "half");
-      } else if (carData.features === "H" || carData.features === "D") {
-        starsData.push("full", "half", "empty");
-      } else if (carData.features === "B" || carData.features === "F") {
-        starsData.push("full", "full", "empty");
-      } else {
-        starsData.push("full", "full", "full");
+};
+
+const scrollToTop = () => {
+  setFeatureDis((val) => !val);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+useEffect(() => {
+  slide === 0 ? setLeftDis(true) : setLeftDis(false);
+  slide === carData.pictures.length - 1
+    ? setRightDis(true)
+    : setRightDis(false);
+  setStartAnimate(true);
+}, [slide]);
+
+useEffect(() => {
+  ratingStarsArrangment();
+  setCarFeauters(shufflingFeatures(carFeautersData));
+
+  if (typeof window !== "undefined") {
+    const storedCartData = localStorage.getItem("cartData");
+    if (storedCartData) {
+      const data: carDataType[] = JSON.parse(storedCartData);
+      if (data.some((val) => params.cars === val.route)) {
+        addCarHandler();
       }
     }
-    setStarsArrangment(
-      starsData.filter((val, ind) => {
-        if (ind <= 4) return val;
-      })
-    );
-  };
+  }
+}, []);
 
-  const slideController = (direction: string) => {
-    direction === "left" ? setSlide(slide - 1) : setSlide(slide + 1);
-  };
-  const addCarHandler = () => {
-    setBtnDis(true);
-    setTimeout(() => {
-      setBtnAnim(true);
-    }, 100);
-  };
+const setReportPercent = () => {
+  let count = 0;
+  setReport(carData.features).data.forEach((val) => {
+    count += val.percentage;
+  });
+  return count / 50;
+};
+
+const ratingStarsArrangment = () => {
+  let starsData: string[] = ["full", "full"];
+  if (starsData.length <= 5) {
+    if (carData.features === "A" || carData.features === "E") {
+      starsData.push("half", "empty", "empty");
+    } else if (carData.features === "C" || carData.features === "J") {
+      starsData.push("full", "full", "half");
+    } else if (carData.features === "H" || carData.features === "D") {
+      starsData.push("full", "half", "empty");
+    } else if (carData.features === "B" || carData.features === "F") {
+      starsData.push("full", "full", "empty");
+    } else {
+      starsData.push("full", "full", "full");
+    }
+  }
+  setStarsArrangment(starsData.slice(0, 5)); 
+};
+
+const slideController = (direction: string) => {
+  direction === "left" ? setSlide(slide - 1) : setSlide(slide + 1);
+};
+
+const addCarHandler = () => {
+  setBtnDis(true);
+  setTimeout(() => {
+    setBtnAnim(true);
+  }, 100);
+};
 
 
   return (
-    <>
       <div className="relative bg-black h-auto w-full pt-16 flex flex-row-reverse gap-1 overflow-hidden">
         <div className="fixed mmd:hidden inline-block h-10 w-10 z-[100] bottom-5 right-5 bg-no-repeat bg-center bg-cover bg-[url('/feature-icon.svg')] cursor-pointer"
         onClick={scrollToTop}
@@ -404,6 +408,5 @@ export default function Page({ params }: { params: Params }) {
           </div>
         </section>
       </div>
-    </>
   );
 }
