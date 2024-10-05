@@ -1,20 +1,43 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import About from "./about/page";
 import Contact from "./contact/page";
 export default function Home() {
   const [lights, setLights] = useState(false);
   const [start, setStart] = useState(true);
+  const aboutRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      setLights(true)
+      window.innerWidth > 900 && setLights(true);
     }, 1300);
     setTimeout(() => {
       setStart(false)
     }, 400);    
   }, []);
-
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && window.innerWidth < 900) {
+          setLights(true); 
+        }else{
+          setLights(false)
+        }
+      },
+      { threshold: 0.1 } 
+    );
+  
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+  
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
+    };
+  }, []);
   return (
     <>
     <div className="relative h-auto w-full bg-black overflow-hidden flex md:flex-row flex-col-reverse">
@@ -38,6 +61,7 @@ export default function Home() {
         <div className={`h-full w-full absolute top-0 right-0 z-20 flex`}>
         <div className={`h-[60%] w-1/2 bg-black/90 ${lights ? "-translate-x-full duration-[1s]" : "translate-x-0"} `}></div>
         <div className={`h-[60%] w-1/2 bg-black/90 ${lights ? " translate-x-full duration-[1s]" : "translate-x-0"}`}></div>
+        <div ref={aboutRef} className="absolute bottom-0 h-2/5 w-2/5"></div>
         </div>
       </div>
       </div>
