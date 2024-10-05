@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const navLinks = [
   { name: "home", link: "/" },
@@ -14,6 +14,20 @@ const Navbar = () => {
   const [index, setIndex] = useState(-1);
   const [height, setHeight] = useState(false);
   const [elem, setElem] = useState(false);
+  const [scrollingDown, setScrollingDown] = useState<boolean>(false);
+  const [lastScrollTop, setLastScrollTop] = useState<number>(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+      setScrollingDown(currentScrollTop > lastScrollTop);
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollTop]);
   const navbarElem = (
     <>
       {navLinks.map((val, ind) => (
@@ -49,7 +63,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="fixed top-0 z-[1000] border-b-[1px] border-zinc-800 h-16 w-full backdrop-blur-glass text-red-800 flex justify-between items-center px-8">
+    <div className={`fixed top-0 z-[1000] border-b-[1px] border-zinc-800 h-16 w-full backdrop-blur-glass text-red-800 flex justify-between items-center px-8 duration-500 ${scrollingDown ? "-translate-y-full" : "translate-y-0"}`}>
       <div
         className={`logo font-bold text-xl text-red-800 uppercase`}
       >
