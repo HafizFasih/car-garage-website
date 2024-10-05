@@ -22,7 +22,6 @@ const Buy = () => {
   const [data, setData] = useState<carDataType[]>([]);
 
   useEffect(() => {
-    // This will only run on the client
     if (typeof window !== "undefined") {
       const cartData = JSON.parse(localStorage.getItem("cartData")!);
       if (cartData) {
@@ -35,7 +34,7 @@ const Buy = () => {
     let total: number = 0;
     data.forEach((val: carDataType) => {
       const purePrice: number = Number(
-        val.price.slice(0, val.price.length - 1).replace(",", "")
+        val.price.slice(1).replace(",", "")
       );
       total += purePrice;
     });
@@ -52,7 +51,7 @@ const Buy = () => {
         price += val;
       }
     });
-    const finalAmount: string = price.split("").reverse().join("") + "$";
+    const finalAmount: string = "$"+price.split("").reverse().join("");
     return finalAmount;
   };
 

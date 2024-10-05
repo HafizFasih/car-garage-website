@@ -295,7 +295,7 @@ const addCarHandler = () => {
             <div className="sm:w-auto w-full">
             <h1 className="sm:text-4xl xxs:text-3xl text-2xl font-semibold my-2">{carData.name}</h1>
             <h2 className="sm:text-xl xxs:text-lg text-sm font-semibold opacity-50">
-              Price: {carData.price}
+            {carData.price}
             </h2>
             </div>
             

@@ -30,7 +30,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW X6",
     brand: "bmw",
-    price: "65,050$",
+    price: "$65,050",
     features: "G",
     route: "bmw-x6",
     pictures: [
@@ -44,7 +44,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW M3",
     brand: "bmw",
-    price: "70,895$",
+    price: "$70,895",
     features: "E",
     route: "bmw-m3",
     pictures: [
@@ -59,7 +59,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW X5",
     brand: "bmw",
-    price: "60,600$",
+    price: "$60,600",
     features: "A",
     route: "bmw-x5",
     pictures: [
@@ -73,7 +73,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW 7 Series",
     brand: "bmw",
-    price: "86,800$",
+    price: "$86,800",
     features: "C",
     route: "bmw-7-series",
     pictures: [
@@ -87,7 +87,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW i8",
     brand: "bmw",
-    price: "147,500$",
+    price: "$147,500",
     features: "F",
     route: "bmw-i8",
     pictures: [
@@ -101,7 +101,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW Z4",
     brand: "bmw",
-    price: "49,700$",
+    price: "$49,700",
     features: "H",
     route: "bmw-z4",
     pictures: [
@@ -115,7 +115,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW M5",
     brand: "bmw",
-    price: "104,495$",
+    price: "$104,495",
     features: "B",
     route: "bmw-m5",
     pictures: [
@@ -130,7 +130,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW 3 Series",
     brand: "bmw",
-    price: "41,250$",
+    price: "$41,250",
     features: "I",
     route: "bmw-3-series",
     pictures: [
@@ -144,7 +144,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW X7",
     brand: "bmw",
-    price: "74,900$",
+    price: "$74,900",
     features: "J",
     route: "bmw-x7",
     pictures: [
@@ -158,7 +158,7 @@ export const bmwCarData: CarDataType[] = [
   {
     name: "BMW M2",
     brand: "bmw",
-    price: "58,900$",
+    price: "$58,900",
     features: "D",
     route: "bmw-m2",
     pictures: [
@@ -174,7 +174,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Continental GT",
     brand: "bentley",
-    price: "202,500$",
+    price: "$202,500",
     features: "D",
     route: "bentley-continental-gt",
     pictures: [
@@ -186,7 +186,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Bentayga",
     brand: "bentley",
-    price: "183,425$",
+    price: "$183,425",
     features: "H",
     route: "bentley-bentayga",
     pictures: [
@@ -200,7 +200,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Flying Spur",
     brand: "bentley",
-    price: "219,425$",
+    price: "$219,425",
     features: "A",
     route: "bentley-flying-spur",
     pictures: [
@@ -214,7 +214,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Mulsanne",
     brand: "bentley",
-    price: "310,800$",
+    price: "$310,800",
     features: "G",
     route: "bentley-mulsanne",
     pictures: [
@@ -228,7 +228,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Arnage",
     brand: "bentley",
-    price: "224,500$",
+    price: "$224,500",
     features: "F",
     route: "bentley-arnage",
     pictures: [
@@ -241,7 +241,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Azure",
     brand: "bentley",
-    price: "370,000$",
+    price: "$370,000",
     features: "B",
     route: "bentley-azure",
     pictures: [
@@ -254,7 +254,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Brooklands",
     brand: "bentley",
-    price: "348,000$",
+    price: "$348,000",
     features: "J",
     route: "bentley-brooklands",
     pictures: [
@@ -268,7 +268,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley EXP 100 GT",
     brand: "bentley",
-    price: "2,500,000$",
+    price: "$2,500,000",
     features: "E",
     route: "bentley-exp-100-gt",
     pictures: [
@@ -282,7 +282,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley R Type",
     brand: "bentley",
-    price: "260,000$",
+    price: "$260,000",
     features: "C",
     route: "bentley-r-type",
     pictures: [
@@ -296,7 +296,7 @@ export const bentleyCarData: CarDataType[] = [
   {
     name: "Bentley Turbo R",
     brand: "bentley",
-    price: "156,000$",
+    price: "$156,000",
     features: "I",
     route: "bentley-turbo-r",
     pictures: [
@@ -311,9 +311,10 @@ export const bentleyCarData: CarDataType[] = [
 export const fordCarData: CarDataType[] = [
   {
     name: "Ford Mustang",
-    price: "55,300$",
+    price: "$55,300",
     features: "H",
     brand: "ford",
+    route: "ford-mustang",
     pictures: [
       "bg-[url('/ford/mustang/3.webp')]",
       "bg-[url('/ford/mustang/4.webp')]",
@@ -322,13 +323,13 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/mustang/1.webp')]",
       "bg-[url('/ford/mustang/2.webp')]",
     ],
-    route: "ford-mustang",
   },
   {
     name: "Ford F-150",
-    price: "40,410$",
+    price: "$40,410",
     features: "D",
     brand: "ford",
+    route: "ford-f-150",
     pictures: [
       "bg-[url('/ford/f-150/3.webp')]",
       "bg-[url('/ford/f-150/5.webp')]",
@@ -336,39 +337,39 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/f-150/1.webp')]",
       "bg-[url('/ford/f-150/2.webp')]",
     ],
-    route: "ford-f-150",
   },
   {
     name: "Ford Bronco",
-    price: "34,695$",
+    price: "$34,695",
     features: "F",
     brand: "ford",
+    route: "ford-bronco",
     pictures: [
       "bg-[url('/ford/bronco/3.webp')]",
       "bg-[url('/ford/bronco/4.webp')]",
       "bg-[url('/ford/bronco/1.webp')]",
       "bg-[url('/ford/bronco/2.webp')]",
     ],
-    route: "ford-bronco",
   },
   {
     name: "Ford Explorer",
-    price: "48,650$",
+    price: "$48,650",
     features: "A",
     brand: "ford",
+    route: "ford-explorer",
     pictures: [
       "bg-[url('/ford/explorer/3.webp')]",
       "bg-[url('/ford/explorer/2.webp')]",
       "bg-[url('/ford/explorer/1.webp')]",
       "bg-[url('/ford/explorer/4.webp')]",
     ],
-    route: "ford-explorer",
   },
   {
     name: "Ford Edge",
-    price: "38,100$",
+    price: "$38,100",
     features: "G",
     brand: "ford",
+    route: "ford-edge",
     pictures: [
       "bg-[url('/ford/edge/4.webp')]",
       "bg-[url('/ford/edge/5.webp')]",
@@ -377,13 +378,13 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/edge/1.webp')]",
       "bg-[url('/ford/edge/2.webp')]",
     ],
-    route: "ford-edge",
   },
   {
     name: "Ford Ranger",
-    price: "32,990$",
+    price: "$32,990",
     features: "J",
     brand: "ford",
+    route: "ford-ranger",
     pictures: [
       "bg-[url('/ford/ranger/4.webp')]",
       "bg-[url('/ford/ranger/3.webp')]",
@@ -391,26 +392,26 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/ranger/1.webp')]",
       "bg-[url('/ford/ranger/2.webp')]",
     ],
-    route: "ford-ranger",
   },
   {
     name: "Ford GT",
-    price: "500,000$",
+    price: "$500,000",
     features: "C",
     brand: "ford",
+    route: "ford-gt",
     pictures: [
       "bg-[url('/ford/gt/3.webp')]",
       "bg-[url('/ford/gt/4.webp')]",
       "bg-[url('/ford/gt/2.webp')]",
       "bg-[url('/ford/gt/1.webp')]",
     ],
-    route: "ford-gt",
   },
   {
     name: "Ford Escape",
-    price: "27,755$",
+    price: "$27,755",
     features: "I",
     brand: "ford",
+    route: "ford-escape",
     pictures: [
       "bg-[url('/ford/escape/3.webp')]",
       "bg-[url('/ford/escape/4.webp')]",
@@ -418,13 +419,13 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/escape/1.webp')]",
       "bg-[url('/ford/escape/2.webp')]",
     ],
-    route: "ford-escape",
   },
   {
     name: "Ford Expedition",
-    price: "66,500$",
+    price: "$66,500",
     features: "E",
     brand: "ford",
+    route: "ford-expedition",
     pictures: [
       "bg-[url('/ford/expedition/4.webp')]",
       "bg-[url('/ford/expedition/1.webp')]",
@@ -432,13 +433,13 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/expedition/3.webp')]",
       "bg-[url('/ford/expedition/5.webp')]",
     ],
-    route: "ford-expedition",
   },
   {
     name: "Ford Fusion",
-    price: "23,170$",
+    price: "$23,170",
     features: "B",
     brand: "ford",
+    route: "ford-fusion",
     pictures: [
       "bg-[url('/ford/fusion/3.webp')]",
       "bg-[url('/ford/fusion/4.webp')]",
@@ -446,13 +447,12 @@ export const fordCarData: CarDataType[] = [
       "bg-[url('/ford/fusion/1.webp')]",
       "bg-[url('/ford/fusion/2.webp')]",
     ],
-    route: "ford-fusion",
   },
 ];
 export const mercedesCarData: CarDataType[] = [
   {
     name: "Mercedes-Benz S-Class",
-    price: "111,100$",
+    price: "$111,100",
     features: "B",
     brand: "mercedes",
     route: "mercedes-benz-s-class",
@@ -465,7 +465,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz G-Class",
-    price: "139,900$",
+    price: "$139,900",
     features: "D",
     brand: "mercedes",
     route: "mercedes-benz-g-class",
@@ -480,7 +480,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz C-Class",
-    price: "44,600$",
+    price: "$44,600",
     features: "G",
     brand: "mercedes",
     route: "mercedes-benz-c-class",
@@ -494,7 +494,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz E-Class",
-    price: "63,050$",
+    price: "$63,050",
     features: "A",
     brand: "mercedes",
     route: "mercedes-benz-e-class",
@@ -509,7 +509,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz GLE",
-    price: "57,700$",
+    price: "$57,700",
     features: "C",
     brand: "mercedes",
     route: "mercedes-benz-gle",
@@ -522,7 +522,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz GLS",
-    price: "80,900$",
+    price: "$80,900",
     features: "I",
     brand: "mercedes",
     route: "mercedes-benz-gls",
@@ -535,7 +535,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-AMG GT",
-    price: "118,600$",
+    price: "$118,600",
     features: "E",
     brand: "mercedes",
     route: "mercedes-amg-gt",
@@ -549,7 +549,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz A-Class",
-    price: "33,950$",
+    price: "$33,950",
     features: "J",
     brand: "mercedes",
     route: "mercedes-benz-a-class",
@@ -562,7 +562,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Benz CLA",
-    price: "39,250$",
+    price: "$39,250",
     features: "H",
     brand: "mercedes",
     route: "mercedes-benz-cla",
@@ -575,7 +575,7 @@ export const mercedesCarData: CarDataType[] = [
   },
   {
     name: "Mercedes-Maybach S-Class",
-    price: "185,950$",
+    price: "$185,950",
     features: "F",
     brand: "mercedes",
     route: "mercedes-maybach-s-class",
