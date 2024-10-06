@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="h-[70%] w-full flex flex-wrap items-start justify-center gap-10 border-b-[1px] border-zinc-800 px-5x">
 
         
-        <div className="h-full w-[42vh] flex items-start py-7 flex-col">
+        <div className="h-full w-[38vh] flex items-start py-7 flex-col">
           <h1 className="font-bold text-2xl capitalize">MF-Store</h1>
           <p className="pr-4">
           Driven by excellence, fueled by passion.
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
 
 
-        <div className="h-full w-[42vh] flex items-start py-7 flex-col">
+        <div className="h-full w-[38vh] flex items-start py-7 flex-col">
           <h1 className="font-bold text-2xl capitalize">Trending Searches</h1>
           <ul>
             {topSearchers.map((val, ind) => (
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
 
-        <div className="h-full w-[42vh] flex items-start py-7 flex-col">
+        <div className="h-full w-[38vh] flex items-start py-7 flex-col">
             <h1 className="font-bold text-2xl capitalize">Quick Links</h1>
             <ul>
             {["home", "about", "contact", "inventory", "cart"].map((val, ind) => (
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
 
-        <div className="h-full w-[42vh] flex items-start py-7 flex-col">
+        <div className="h-full w-[38vh] flex items-start py-7 flex-col">
             <h1 className="font-bold text-2xl capitalize ">Follow us</h1>
             <div className="h-16 w-full flex gap-2 items-center justify-start">
                 <span className="relative h-10 w-10 inline-block overflow-hidden">

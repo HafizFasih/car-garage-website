@@ -9,22 +9,22 @@
     background-size: contain;
     -webkit-text-fill-color: transparent;
 }
-/* For WebKit browsers (Chrome, Safari, Edge) */
+
 ::-webkit-scrollbar {
-  width: 5px; /* Scrollbar width */
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: darkred; /* Scrollbar thumb (dark red) */
-  border-radius: 10px; /* Rounded corners */
+  background-color: darkred;
+  border-radius: 10px; 
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ffcccc; /* Scrollbar track (light red) */
+  background-color: #ffcccc; 
 }
 
-/* For Firefox */
+
 * {
-  scrollbar-width: thin; /* Make scrollbar thin */
-  scrollbar-color: #800a0a #471a1a; /* Dark red thumb, light red track */
+  scrollbar-width: thin; 
+  scrollbar-color: #800a0a #471a1a; 
 }
